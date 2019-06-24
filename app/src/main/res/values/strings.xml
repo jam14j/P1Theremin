@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P1Theremin</string>
+    <string name="quit">Quit</string>
+    <string name="selectSound">Select Sound</string>
+</resources>
