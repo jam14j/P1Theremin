@@ -14,6 +14,7 @@ import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -115,6 +116,36 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Message msg;
+        switch (item.getItemId()) {
+            case R.id.switchX:
+                msg = Message.obtain(null, ThereminService.MSG_FLIP_X, 0, 0);
+                try {messenger.send(msg);}
+                catch (RemoteException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case R.id.switchY:
+                msg = Message.obtain(null, ThereminService.MSG_FLIP_Y, 0, 0);
+                try {messenger.send(msg);}
+                catch (RemoteException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            case R.id.switchZ:
+                msg = Message.obtain(null, ThereminService.MSG_FLIP_Z, 0, 0);
+                try {messenger.send(msg);}
+                catch (RemoteException ex) {
+                    ex.printStackTrace();
+                }
+                break;
+
+        }
         return true;
     }
 }
